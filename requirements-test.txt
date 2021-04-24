@@ -1,0 +1,6 @@
+flake8==3.6.0
+mypy==0.560
+pylint
+bandit==1.4.0
+# For ex8
+PyYAML>=3.11
