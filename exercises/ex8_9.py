@@ -31,12 +31,15 @@ Tham khảo thêm cho Sysadmin
 
 
 import log
-
+import sys
+import os
+from inspect import getmembers, isfunction
+from importlib import import_module
 logger = log.get_logger(__name__)
 PATH = "."
 
 
-def your_function(input_data):
+def line_in_file(input_data):
     """Trả về `dict` chứa tổng số dòng của từng loại file trong thư
     mục hiện tại (bao gồm cả thư mục con) theo format:
 
@@ -53,12 +56,37 @@ def your_function(input_data):
     :rtype dict:
     """
     # Sửa tên và function cho phù hợp, trả về kết quả yêu cầu.
-    result = None
-
+    result = {}
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
+    for root, direct, files in os.walk(input_data, topdown=True):
+        for file in files:
+            path_file = os.path.join(root, file)
+            file_extension = path_file[path_file.rfind('.'):]
+            if file_extension not in result:
+                result[file_extension] = 0
+            try:
+                with open(file, 'r') as f:
+                    result[file_extension] += sum(1 for line in f)
+            except (IOError, UnicodeDecodeError):
+                continue
 
     return result
+
+
+def find_func(input_data):
+    for root, direct, files in os.walk(input_data, topdown=True):
+        for file in files:
+            fil = os.path.splitext(file)[0]
+            try:
+                if import_module(fil):
+                    module = import_module(fil)
+                    functions_list = [o for o in getmembers(module)
+                                      if isfunction(o[1])]
+                    print(functions_list)
+            except (ModuleNotFoundError, NameError,
+                    IOError, UnicodeDecodeError):
+                continue
+    return
 
 
 def solve(input_data):
@@ -74,7 +102,7 @@ def solve(input_data):
     """
 
     logger.debug("Statically analysing directory %s", input_data)
-    result = your_function(input_data)
+    result = line_in_file(input_data)
     return result
 
 
@@ -83,8 +111,8 @@ def main():
 
     # sử dụng `sys.argv` hoặc `argparse` để gán gía trị yêu cầu vào biến `path`
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa thực hiện truyền `path`")
-
+    path = sys.argv[1]
+    find_func(path)
     print(solve(path))
 
 

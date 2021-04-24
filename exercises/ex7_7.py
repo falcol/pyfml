@@ -40,12 +40,13 @@ def country_ranks(xmldata):
     """
 
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
-
+    result = []
     for child in ET.fromstring(xmldata):
-        pass
+        rank = child.find('rank').text
+        name = child.get('name')
+        result.append((name, int(rank)))
 
-    return
+    return result
 
 
 def solve(input_data):

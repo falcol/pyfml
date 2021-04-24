@@ -13,9 +13,9 @@ def solve(numbers):
     result = None
 
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
+    result = filter(lambda x: x % 2 == 1, numbers)
 
-    return result
+    return list(result)
 
 
 def main():

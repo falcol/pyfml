@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from fractions import Fraction
 
 
 def solve(*args):
@@ -14,7 +15,7 @@ def solve(*args):
     result = None
 
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
+    result = float(sum([Fraction(fraction) for fraction in args]))
 
     return result
 

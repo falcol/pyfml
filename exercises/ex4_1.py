@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 """
-Khi làm bài 4, học viên nhớ làm lại đầy đủ từ bước số 1 trong hướng dẫn nộp
-bài để tránh bị nộp lẫn bài 3 và bài 4 với nhau.
-
-==========
-
 Bài tập ở PyMi không nhằm để kiểm tra IQ của học sinh, cũng không thi lấy điểm,
 mục tiêu của chúng tôi là học viên với trình độ đầu vào tùy ý, nhưng đến
 lúc ra đều có thể làm được việc. Vì vậy, nếu không tự làm được bài tập,
@@ -66,9 +61,12 @@ def solve(ip):
     Khi s = '1', s.zfill(5) sẽ thêm đủ "zero" để tạo thành '00001'
     """
     result = None
+    list_bin = []
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
-
+    for num in ip.split("."):
+        bin_str = str(bin(int(num)))
+        list_bin.append(bin_str[2:].zfill(8))
+    result = ".".join(list_bin)
     return result
 
 

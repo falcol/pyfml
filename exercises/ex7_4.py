@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from itertools import groupby
 
 
 def solve(text):
@@ -15,12 +16,16 @@ def solve(text):
     NOTE: dùng itertools.groupby
     https://pymotw.com/3/itertools/
     """
-    result = None
-
+    result = []
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
+    for char, chars in groupby(text):
+        group_char = list(chars)
+        if len(group_char) == 1:
+            result.append(char)
+        else:
+            result.append('{}{}'.format(char * 2, len(group_char)))
 
-    return result
+    return ''.join(result)
 
 
 def main():

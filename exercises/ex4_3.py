@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import string
 
 
 def solve(words):
@@ -15,10 +16,22 @@ def solve(words):
     """
 
     result = None
-
+    result = []
+    sum_word = 0
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
+    # Cach 1
+    # for word in words:
+    #    for w in word.lower():
+    #        sum_word += ord(w) - 96
+    #    result.append(sum_word)
+    #    sum_word = 0
 
+    # Cach 2
+    for word in words:
+        for w in word.lower():
+            sum_word += string.ascii_lowercase.index(w) + 1
+        result.append(sum_word)
+        sum_word = 0
     return result
 
 

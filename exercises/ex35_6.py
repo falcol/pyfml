@@ -10,10 +10,10 @@ def solve(N):
     Tips: list comprehension always create new list
     """
     result = 0
-
+    ls_num = []
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
-
+    ls_num.extend(str(2 ** N))
+    result = sum([int(i) for i in ls_num])
     return result
 
 

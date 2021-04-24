@@ -20,10 +20,15 @@ def solve():
     Lưu ý: kết quả từng list con trả về với a giảm dần, b và c tăng dần
     """
     result = None
-
+    ls_full = []
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
-
+    for b in range(1, 10):
+        for c in range(1, 10):
+            if b % c == 0:
+                a = 10 - (b // c)
+                ls_num = [a, b, c]
+                ls_full.append(ls_num)
+    result = sorted(ls_full, key=lambda n: f"{10 - n[0]}{n[1]}{n[2]}")
     return result
 
 

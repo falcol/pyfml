@@ -12,16 +12,18 @@ VD: 03/28/16 làm parameter và in ra một version được tính theo quy lu�
 
 In ra phiên bản tương ứng.
 
-Gợi ý: học viên sử dụng `sys.argv` hoặc module `argparse`
+Gợi Gý: học viên sử dụng `sys.argv` hoặc module `argparse`
 https://pymotw.com/3/argparse/index.html
 """
 
 import log
+import datetime
+import sys
 
 logger = log.get_logger(__name__)
 
 
-def your_function(input_data):
+def get_version(input_data):
     """Trả về tên phiên bản như yêu cầu tại ``__doc__``
 
     :param input_data: ngày format ở dạng <month>/<day>/<year>,
@@ -30,6 +32,11 @@ def your_function(input_data):
     """
     # Sửa tên và function cho phù hợp, trả về kết quả yêu cầu.
     result = None
+    date = input_data.split("/")
+    days = (datetime.date(
+        month=int(date[0]), day=int(date[1]), year=int(date[2])
+    ) - datetime.date(month=2, day=9, year=16)).days
+    result = "{}.{}.{}".format(days // 28 + 1, days % 28 // 7, days % 28 % 7)
     return result
 
 
@@ -42,9 +49,8 @@ def solve(input_data):
 
     :rtype str:
     """
-    result = your_function(input_data)
+    result = get_version(input_data)
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
     return result
 
 
@@ -54,7 +60,7 @@ def main():
     # sử dụng `sys.argv` hoặc `argparse` để gán gía trị yêu cầu
     # vào biến `input_data`
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa thực hiện truyền input_data")
+    input_data = sys.argv[1]
 
     logger.debug("Getting version for the day %s", input_data)
     print(input_data, solve(input_data))

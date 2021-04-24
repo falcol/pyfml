@@ -30,8 +30,11 @@ def solve(input_data):
     result = None
 
     # Xoá dòng raise và Viết code vào đây set result làm kết quả
-    raise NotImplementedError("Học viên chưa làm bài này")
-
+    words = input_data.strip().split("\n")
+    ls = []
+    for word in words:
+        ls.append(word[0])
+    result = "".join(ls).title()
     return result
 
 

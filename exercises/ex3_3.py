@@ -14,11 +14,20 @@ def solve():
 
     :rtype: list
     """
-    result = None
+    result = []
 
+    fizbuz = ""
     # Xóa dòng sau và viết code vào đây set các gía trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
-
+    for i in range(1, 101):
+        if i % 15 == 0:
+            fizbuz = 'FizzBuzz'
+        elif i % 5 == 0:
+            fizbuz = 'Buzz'
+        elif i % 3 == 0:
+            fizbuz = 'Fizz'
+        else:
+            fizbuz = i
+        result.append(fizbuz)
     return result
 
 

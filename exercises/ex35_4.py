@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+import random
+import string
 
 
 def solve(N):
@@ -16,7 +18,7 @@ def solve(N):
     result = None
 
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
+    result = [random.choice(string.ascii_letters) for i in range(1, N + 1)]
 
     return result
 

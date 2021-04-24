@@ -22,13 +22,13 @@ def factorial(n):
 
 class TestFactorial(unittest.TestCase):
     def test_factorial_0_is_1(self):
-        self.assertEqual(-1, factorial(0))
+        self.assertEqual(1, factorial(0))
 
     def test_factorial_3_is_6(self):
         self.assertEqual(6, factorial(3))
 
     def test_factorial_4_is_24(self):
-        self.assertEqual(24, factorial(5))
+        self.assertEqual(24, factorial(4))
 
 
 def solve():

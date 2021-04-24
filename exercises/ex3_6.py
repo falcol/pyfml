@@ -26,10 +26,11 @@ def solve(input_data):
     """
     assert input_data in range(1, 13, 1), "Tháng không tồn tại"
     result = ["MONTH", "DATE"]
-
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
-
+    MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
+              'July', 'August', 'September', 'October', 'November', 'December']
+    DATES = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    result = (MONTHS[input_data - 1], DATES[input_data - 1])
     return result
 
 

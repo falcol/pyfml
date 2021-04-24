@@ -20,7 +20,7 @@ import log
 logger = log.get_logger(__name__)
 
 
-def your_function(N):
+def get_time_sleep(N):
     """Trả về tuple chứa 2 phần tử bao gồm:
     - List chứa các điểm thời gian (string) sau N lần thực hiện
     theo yêu cầu từ ``__doc__``
@@ -36,7 +36,10 @@ def your_function(N):
 
     result = []
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
+    for i in range(N):
+        now_time = datetime.datetime.now()
+        time.sleep(1)
+        result.append(now_time.strftime("%Y-%m-%d %H:%M:%S"))
 
     end = time.time()
     logger.debug("End at %f", end)
@@ -51,7 +54,7 @@ def solve(N):
     Hàm solve dùng cho mục đích `test`
     :rtype tuple:
     """
-    result = your_function(N)
+    result = get_time_sleep(N)
     return result
 
 

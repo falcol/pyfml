@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import copy
 
 """
 Tips: dùng stdlib copy.deepcopy
@@ -53,12 +54,16 @@ def solve(last_year_data):
 
     Chú ý: code tránh dựa vào thứ tự cụ thể trong để bài.
     """
-    result = []
-
+    this_year = copy.deepcopy(last_year_data)
+    languagess = data[0]['languages']
     # Xoá dòng raise và Viết code vào đây set result làm kết quả
-    raise NotImplementedError("Học viên chưa làm bài này")
+    for info in this_year:
+        info.update(languages=languagess)
 
-    return result
+    this_year[0]['languages'].append("Elixir")
+    this_year[1].pop('girl_friend')
+    this_year[3].update(girl_friend='Do Anh')
+    return this_year
 
 
 def main():
@@ -68,6 +73,7 @@ def main():
 
     result = solve(students)  # NOQA
     # In ra các thông tin đã thay đổi so với năm trước của mỗi học viên.
+    print(result)
 
 
 if __name__ == "__main__":

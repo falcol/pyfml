@@ -12,10 +12,16 @@ def solve(input_data):
     :rtype: bool
     """
     result = None
-
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
-
+    s1 = "".join(input_data.split()).casefold()
+    if len(s1) > 2:
+        s2 = s1[::-1]
+        if s1 == s2:
+            result = True
+        else:
+            result = False
+    else:
+        result = False
     return result
 
 

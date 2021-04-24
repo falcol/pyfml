@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import string
 
 
 def solve():
@@ -17,7 +18,16 @@ def solve():
     unicodes = []
 
     # Xoá dòng raise và Viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
+    twenty_ascii = [(num, chr(num))
+                    for num in range(33, 53)]
+
+    tabcodepoint = ord('\t')
+    newlinecodepoint = ord('\n')
+    spacecodepoint = ord(' ')
+
+    unicodes = [[chr(i) for i in range(0, 10)],
+                [ord(i) for i in string.ascii_lowercase],
+                [ord(i) for i in string.ascii_uppercase]]
 
     result = (
         twenty_ascii,

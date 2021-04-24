@@ -14,8 +14,9 @@ def solve(N):
     result = None
 
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
-
+    result = sum([i
+                  for i in range(1, N)
+                  if i % 3 == 0 or i % 5 == 0])
     return result
 
 

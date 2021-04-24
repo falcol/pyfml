@@ -26,8 +26,23 @@ def solve(inputfile, N=5):
     theo thứ tự tên học viên.
     """
     result = []
+    list_student = []
+    year = 1990
+    room = 0
     # Xoá dòng raise và Viết code vào đây set result làm kết quả
-    raise NotImplementedError("Học viên chưa làm bài này")
+    with open(inputfile) as f:
+        for names in f:
+            list_student.append(names.rstrip())
+    list_student.sort()
+
+    for names in list_student:
+        if names.startswith('H') and names.endswith('ng'):
+            room = N + 1
+        else:
+            room = N
+        msv = hash(names) % MAGIC_NUMBER
+        info = (msv, names, year, room)
+        result.append(info)
 
     return result
 

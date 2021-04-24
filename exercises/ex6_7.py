@@ -14,12 +14,15 @@ def solve(input_data):
        2      10     0o2     0x2
        ...
     """
-    result = None
-
+    result = []
     # Xoá dòng raise và Viết code vào đây set result làm kết quả
-    raise NotImplementedError("Học viên chưa làm bài này")
-
-    return result
+    for i in input_data:
+        data = '{}{}{}{}\n'.format(str(i).rjust(8),
+                                   bin(i)[2:].rjust(8),
+                                   oct(i).rjust(8),
+                                   hex(i).rjust(8))
+        result.append(data)
+    return "".join(result)
 
 
 def main():

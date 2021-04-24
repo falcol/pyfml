@@ -12,13 +12,22 @@ import random  # NOQA
 import string  # NOQA
 
 
-def your_function(length=16):
+def rand_pass(length=16):
     """Tạo một mật khẩu ngẫu nhiên (random password),
     mật khẩu này bắt buộc phải chứa ít nhất 1 chữ thường,
     1 chữ hoa, 1 số, 1 ký tự punctuation (string.punctuation).
     """
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
+    upper_char = random.choice(string.ascii_uppercase)
+    lower_char = random.choice(string.ascii_lowercase)
+    num_char = random.choice(string.digits)
+    punct_char = random.choice(string.punctuation)
+    result = [upper_char, lower_char, num_char, punct_char]
+
+    for char in range(4, length):
+        result.append(random.choice(string.printable))
+    random.shuffle(result)
+    return ''.join(result)
 
 
 def generate_and_append(length, passwords=[]):
@@ -28,11 +37,15 @@ def generate_and_append(length, passwords=[]):
     password vừa tạo ra.
     Sửa argument tùy ý.
     """
-    pass
+    if passwords:
+        passwords.append(solve(length))
+    else:
+        passwords = [solve(length)]
+    return passwords
 
 
 def solve(input_data):
-    result = your_function(input_data)
+    result = rand_pass(input_data)
     return result
 
 

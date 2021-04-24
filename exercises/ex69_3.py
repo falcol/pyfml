@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import functools
 
 
 def solve(numbers):
@@ -14,7 +15,7 @@ def solve(numbers):
     result = None
 
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
+    result = functools.reduce(lambda x, y: x * y, numbers)
 
     return result
 

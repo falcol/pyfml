@@ -11,10 +11,10 @@ def solve(text):
     """
 
     result = None
-
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
-
+    list_num = [digit if digit.isdigit() else " " for digit in text]
+    num = "".join(list_num).split()
+    result = [int(integer) for integer in num]
     return result
 
 

@@ -17,11 +17,11 @@ def solve():
 
     Lưu ý: Thứ tự tăng dần theo bảng cửu chương
     """
-    result = None
-
+    result = []
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
-
+    for i in range(5, 100, 5):
+        x = "{} == {} * 5"
+        result.append(x.format(i, i // 5))
     return result
 
 

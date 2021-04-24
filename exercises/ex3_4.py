@@ -22,10 +22,8 @@ def solve(input_data):
     :rtype: str
     """
     result = None
-
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
-
+    result = input_data[:input_data.rfind('.')]
     return result
 
 

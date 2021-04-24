@@ -8,10 +8,13 @@ def solve(numbers):
     Không sử dụng hàm `sum`
     """
     result = None
-
+    sum_num = 0
+    product = 1
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
-
+    for i in numbers:
+        sum_num += i
+        product *= i
+    result = (sum_num, product)
     return result
 
 

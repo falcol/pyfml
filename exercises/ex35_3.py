@@ -9,7 +9,7 @@ def solve(N):
     result = None
 
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
+    result = [i * 2 for i in range(1, N + 1)]
 
     return result
 

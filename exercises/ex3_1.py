@@ -25,8 +25,8 @@ def solve(input_data):
 
     result = None
     # Xoá dòng raise và Viết code vào đây set result làm kết quả
-    raise NotImplementedError("Học viên chưa làm bài này")
-
+    s_bin = bin(input_data)
+    result = int(s_bin[s_bin.rfind("1"):])
     return result
 
 

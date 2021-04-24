@@ -137,9 +137,18 @@ def solve(input_data):
     """
     provinces_startswith_h = []
     provinces_more_than_1m = []
-
     # Xoá dòng raise và Viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
+
+    provinces_startswith_h = [(info['name'], info['population'])
+                              for info in input_data
+                              if info['name'].startswith('H')]
+    provinces_startswith_h = sorted(provinces_startswith_h, key=lambda x: x[0])
+
+    provinces_more_than_1m = [(info['name'], info['population'])
+                              for info in input_data
+                              if info['population'] > 1_000_000]
+    provinces_more_than_1m = sorted(provinces_more_than_1m,
+                                    key=lambda x: x[1], reverse=True)
 
     result = (provinces_startswith_h, provinces_more_than_1m)
     return result

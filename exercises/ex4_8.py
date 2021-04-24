@@ -8,9 +8,15 @@ def solve():
     Yêu cầu dùng list comprehension.
     """
     result = None
-
+    result = []
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
+    for a in range(1, 11):
+        list_n = []
+        for b in range(1, 11):
+            c = 24 - a - b
+            if a ** 2 + b ** 2 == c ** 2:
+                list_n = (a, b, c)
+                result.append(list_n)
 
     return result
 

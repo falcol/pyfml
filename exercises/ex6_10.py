@@ -16,7 +16,11 @@ def rprint(n):
     """Hàm đệ quy (recursive function) in ra màn hình từ 1 -> n.
     Tham khảo: http://pymi.vn/blog/print-recursively/
     """
-    pass
+    if n == 0:
+        return
+    else:
+        rprint(n - 1)
+        print(n)
 
 
 def pe_02():
@@ -31,7 +35,15 @@ def pe_02():
 
     Kiểm tra kết quả tại: https://projecteuler.net/problem=2
     """
-    return
+    a, b = 0, 1
+    result = 0
+    for i in range(1_000_000):
+        a, b = a + b, a
+        if a > 4_000_000:
+            break
+        if a % 2 == 0:
+            result += a
+    return result
 
 
 def move_hanoi_tower(disk, source, dest, spare):
@@ -44,7 +56,13 @@ def move_hanoi_tower(disk, source, dest, spare):
 
     In ra từng bước chuyển đĩa.
     """
-    pass
+    if disk > 0:
+        if disk == 1:
+            print('Chuyen {} sang {}'.format(source, spare))
+            return
+        move_hanoi_tower(disk - 1, source, spare, dest)
+        move_hanoi_tower(1, source, dest, spare)
+        move_hanoi_tower(disk - 1, dest, source, spare)
 
 
 def main():

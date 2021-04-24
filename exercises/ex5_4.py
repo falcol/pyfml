@@ -15,9 +15,26 @@ def solve(output_path, n=NUMBER_OF_LINES):
     Chú ý: n mặc định là 30 triệu dòng.
     """
     result = None
+    line = 1
     # Xoá dòng raise và Viết code vào đây set result làm kết quả
-    raise NotImplementedError("Học viên chưa làm bài này")
+    list_line = [True for i in range(NUMBER_OF_LINES)]
+    for i in range(1, NUMBER_OF_LINES, 2):
+        list_line[i] = False
+    f = open('fileline.line', 'wt')
+    for i in list_line:
+        if i:
+            f.write(30 * '1' + '\n')
+        else:
+            f.write(str(2 * line) + '\n')
+        line = line + 1
 
+    lines = 1
+    result = []
+    f = open('fileline.line', 'rt')
+    for li in f:
+        if lines <= 10 or lines > NUMBER_OF_LINES - 10:
+            result.append(li)
+        lines += 1
     #
     #
     #

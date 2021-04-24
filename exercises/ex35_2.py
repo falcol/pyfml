@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import random
 
 
 def solve(N):
@@ -15,7 +16,7 @@ def solve(N):
     result = None
 
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
+    result = [random.randrange(0, N) for i in range(N)]
 
     return result
 

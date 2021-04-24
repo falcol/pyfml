@@ -18,8 +18,8 @@ def repositories(github_login):
         repos = json.load(f)
     # Sửa function cho phù hợp, trả về kết quả yêu cầu.
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
-    return repos
+    result = [repo['name'] for repo in repos]
+    return result
 
 
 def solve(input_data):

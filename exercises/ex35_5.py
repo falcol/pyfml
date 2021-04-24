@@ -13,7 +13,9 @@ def solve(N):
     result = None
 
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
+    result = [str(i) * 6
+              for i in range(1, N + 1)
+              if i % 2 != 0]
 
     return result
 

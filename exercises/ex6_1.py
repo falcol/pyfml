@@ -15,14 +15,25 @@ def calculate_cost(usage, prices):
     Out[1]: True
     """
     # Viết code tính toán vào đây
-    pass
+    usage = int(usage)
+    price = 0.0
+    if usage > 100:
+        price = (50 * prices["first_50"]
+                 + 50 * prices["from_51_to_100"]
+                 + (usage - 100) * prices["above_100"])
+    elif 50 < usage <= 100:
+        price = (50 * prices["first_50"]
+                 + (usage - 50) * prices["from_51_to_100"])
+    elif usage < 50:
+        price = usage * prices["first_50"]
+
+    return "{:,}".format(price)
 
 
 def solve(input_data):
     result = None
 
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
 
     # Bài này làm mẫu, gọi function học viên định nghĩa với input để
     # tính kết quả.

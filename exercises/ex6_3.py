@@ -9,15 +9,19 @@ def find_max_price(datafile):
     f = open(datafile)
     dr = csv.DictReader(f, ["time", "price", "UNKNOWN"])  # NOQA
     # Viết tiếp code vào đây
-
+    highset_price = 0.0
     try:
         # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-        raise NotImplementedError("Học viên chưa làm bài này")
-
+        for info in dr:
+            if float(info['price']) > highset_price:
+                highset_price = float(info['price'])
+                time_result = time.strftime(
+                    '%Y-%m-%d', time.localtime(int(info['time'])))
+                result = (time_result, highset_price)
     finally:
         f.close()
 
-    return
+    return result
 
 
 def solve():

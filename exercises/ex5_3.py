@@ -14,10 +14,15 @@ def solve(input_data):
     cũng được).
     """
     result = None
+    list_char = "".join([char
+                         if char not in ['“', '”', '.', ',', ';'] else " "
+                         for char in input_data]).split()
     # Xoá dòng raise và Viết code vào đây set result làm kết quả
-    raise NotImplementedError("Học viên chưa làm bài này")
+    list_count = [list_char.count(word) for word in list_char]
+    list_dict = dict(list(zip(list_char, list_count)))
+    result = sorted(list_dict.items(), key=lambda ls: ls[1], reverse=True)
 
-    return result
+    return result[:10]
 
 
 def main():
@@ -41,6 +46,7 @@ def main():
 
     # In ra 10 từ xuất hiện nhiều nhất kèm số lần xuất hiện
     # Viết code in ra màn hình sau dòng này
+    print(result)
 
 
 if __name__ == "__main__":

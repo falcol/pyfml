@@ -31,10 +31,13 @@ def solve(N):
     """
 
     result = None
-
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
-
+    ls_matrix = ["".join([str(i)
+                 if j == i or j == N - 1 - i
+                 else "*"
+                 for j in range(0, N)])
+                 for i in range(0, N)]
+    result = "\n".join(ls_matrix)
     return result
 
 

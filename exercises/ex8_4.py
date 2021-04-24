@@ -9,16 +9,22 @@ Yêu cầu:
 import time
 
 
-def your_decorator(function):
+def run_time(function):
     """Tính thời gian chạy của `function` (float)
     """
     # Sửa lại tên và function cho phù hợp
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    return
+    def inner():
+        begin = time.time()
+        function()
+        end = time.time()
+        return end - begin
+
+    return inner
 
 
 # Sửa tên decorator cho phù hợp
-@your_decorator
+@run_time
 def worker():
     for i in range(10000):
         pass
@@ -32,7 +38,6 @@ def solve():
     """
     result = worker()
     # Xoá dòng sau sau khi đã thay đổi your_decorator phù hợp
-    raise NotImplementedError("Học viên chưa thực hiện tính toán")
     return result
 
 

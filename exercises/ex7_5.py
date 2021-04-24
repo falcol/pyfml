@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+import os
+import sys
 
 
 def solve(*args, **kwargs):
@@ -19,8 +21,12 @@ def solve(*args, **kwargs):
     result = None
 
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
-
+    link_to_os = os.path.abspath(os.__file__)
+    os_att = dir(os)
+    sys_att = dir(sys)
+    with open(link_to_os) as f:
+        line_os_file = sum(1 for i in f)
+    result = (link_to_os, os_att, sys_att, line_os_file)
     return result
 
 

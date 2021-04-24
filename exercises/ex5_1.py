@@ -24,9 +24,16 @@ def solve(colors):
         Out[1]: [('xanh', 'XXX'), ('do', 'YYY')]
     """
     result = []
-
     # Xoá dòng raise và Viết code vào đây set result làm kết quả
-    raise NotImplementedError("Học viên chưa làm bài này")
+    logo = [['G', 'o', 'o', 'g', 'l', 'e'],
+            [colors['xanh da trời'], colors['đỏ'], colors['vàng'],
+             colors['xanh da trời'], colors['xanh lá'], colors['đỏ']]]
+    result = list(zip(*logo))
+
+    f = open("index.html", "wt")
+    for char, color in result:
+        f.write('<span style="color:{}">{}</span>'.format(color, char))
+    f.close()
 
     return result
 

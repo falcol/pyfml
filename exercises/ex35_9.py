@@ -13,7 +13,12 @@ def diff_attributes(object1, object2):
     Tìm list các "magic" attribute mà chỉ object1 có, object2 không có
     """
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
+    ls_1 = dir(object1)
+    ls_2 = dir(object2)
+    return [str(i) for i in ls_1
+            if i not in ls_2
+            and i.startswith("__")
+            and i.endswith("__")]
 
 
 def solve(input_data):

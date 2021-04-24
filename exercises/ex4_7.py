@@ -16,11 +16,15 @@ def solve(year):
 
     Năm 2017 là năm "Đinh Dậu".
     """
+    Thien_can = ['Thân', 'Dậu', 'Tuất', 'Hợi', 'Tý', 'Sửu',
+                 'Dần', 'Mão', 'Thìn', 'Tị', 'Ngọ', 'Mui']
+    Dia_chi = ['Canh', 'Tân', 'Nhâm', 'Quý', 'Giáp',
+               'Ất', 'Bính', 'Đinh', 'Mậu', 'Kỷ']
 
-    result = None
+    tc = year % 12
+    dc = year % 10
 
-    # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
+    result = (year, Dia_chi[dc] + " " + Thien_can[tc])
 
     return result
 

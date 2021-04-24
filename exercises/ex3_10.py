@@ -27,10 +27,11 @@ def solve(nums, target):
     https://leetcode.com/problems/two-sum/
     """
     result = []
-
     # Xoá dòng raise và Viết code vào đây set result làm kết quả
-    raise NotImplementedError("Học viên chưa làm bài này")
-
+    for i, j in enumerate(nums):
+        k = target - j
+        if k in nums:
+            result = [nums.index(k), i]
     return result
 
 

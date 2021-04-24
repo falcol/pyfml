@@ -26,9 +26,10 @@ import json  # NOQA
 import os  # NOQA
 import pickle  # NOQA
 import yaml  # NOQA
+# import requests
 
 
-def your_function():
+def size_of_file():
     """Trả về số phần tử của kiểu dữ liệu sau khi dùng module `yaml` để load
 
     Thực hiện các yêu cầu tại ``__doc__``
@@ -37,10 +38,30 @@ def your_function():
     """
     # Sửa tên và function cho phù hợp, trả về kết quả yêu cầu.
     result = None
-
+    # url = ("https://raw.githubusercontent.com/hvnsweeting/states/master/"
+    #       "salt/event/init.sls")
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
+    # r = requests.get(url)
+    # with open('event.yaml', 'wt') as f:
+    #    f.write(r.text)
+    yaml_path = os.path.join(os.path.dirname(__file__), 'event.yaml')
+    json_path = os.path.join(os.path.dirname(__file__), 'event.json')
+    pkl_path = os.path.join(os.path.dirname(__file__), 'event.pkl')
 
+    with open(yaml_path, 'rt') as f:
+        datas_yaml = yaml.safe_load(f)
+
+    with open(json_path, 'wt') as f:
+        json.dump(datas_yaml, f)
+
+    with open(json_path) as f:
+        with open(pkl_path, 'wb') as f2:
+            pickle.dump(json.load(f), f2)
+
+    result = (len(datas_yaml),
+              os.stat(yaml_path).st_size,
+              os.stat(json_path).st_size,
+              os.stat(pkl_path).st_size)
     return result
 
 
@@ -50,7 +71,7 @@ def solve():
 
     :rtype int:
     """
-    result = your_function()
+    result = size_of_file()
 
     return result
 
